@@ -1,0 +1,435 @@
+Hey you are going to do a whole for me now. 
+
+here is my signup page
+
+import React from "react";
+
+
+import SignupInfo from "../../components/signup/signup-info/SignupInfo";
+import ChooseSignupPlatform from "../../components/signup/choose-signup-platform/ChooseSignupPlatform";
+import SignupForm from "../../components/signup/signup-form/SignupForm";
+import ConfirmEmail from "../../components/signup/confirm-email/ConfirmEmail";
+import VerifyEmail from "../../components/signup/verify-email/VerifyEmail";
+import EmailConfirmed from "../../components/signup/email-confirmed/EmailConfirmed";
+
+export default function Signup() {
+  return (
+    <div className="min-h-screen flex flex-wrap">
+      <div className="w-full md:w-6/12 ">
+        <SignupInfo />
+      </div>
+
+      <div className="bg-[#F8FAFC] w-full md:w-6/12">
+        <ChooseSignupPlatform />
+        <SignupForm />
+        <ConfirmEmail />
+        <EmailConfirmed />
+        <VerifyEmail />
+
+        <div className="md:hidden text-center md:text-start py-8 text-[#83909a] text-[13px] font-normal font-['Mulish'] leading-[19px]">
+        © 2022 Revvex. All rights reserved
+      </div>
+      </div>
+    </div>
+  );
+}
+
+
+Number 1, I want you to configure one of these to be showing at once based on which stage, the user is
+
+    <ChooseSignupPlatform />
+        <SignupForm />
+        <ConfirmEmail />
+        <EmailConfirmed />
+        <VerifyEmail />
+
+here are their full implementations
+
+import React from "react";
+
+import MAIL_LOGO from "../../../assets/signup/mail_icon.svg";
+import GOOGLE_LOGO from "../../../assets/signup/google_icon.svg";
+import HELP_MESSAGE_ICON from "../../../assets/signup/help_message.svg";
+
+
+export default function ChooseSignupPlatform() {
+  return (
+    <>
+      <div className="md:w-[88.9%] lg:w-[68.9%] bg-white p-[50px] mx-auto mt-[160px] rounded-lg md:shadow md:border md:border-[#dde2e4]">
+        <div className=" text-[#1d1d18] text-2xl font-bold font-['Mulish'] leading-normal mb-[33px]">
+          Register your account
+        </div>
+        <button className="h-10 mb-3 w-[100%] gap-2 rounded-md border border-[#dde2e4] flex  justify-center items-center">
+          <div>
+            <img src={MAIL_LOGO} alt="" />
+          </div>
+          <div className="text-[#5a6771] text-sm font-normal font-['Mulish'] leading-normal">
+            Sign up with email
+          </div>
+        </button>
+
+        <div className="flex items-center mb-3">
+          <div className="flex-grow h-px bg-gray-300"></div>
+          <span className="mx-4 text-[#5a6771] text-[13px] font-normal font-['Mulish'] leading-[19px]">
+            or
+          </span>
+          <div className="flex-grow h-px bg-gray-300"></div>
+        </div>
+
+        <button className="h-10 w-[100%] mb-[41px] gap-2 rounded-md border border-[#dde2e4] flex  justify-center items-center">
+          <div>
+            <img src={GOOGLE_LOGO} alt="" />
+          </div>
+          <div className="text-[#5a6771] text-sm font-normal font-['Mulish'] leading-normal">
+            Sign up with Google
+          </div>
+        </button>
+
+        <div className="text-[#83909a] text-[13px] font-normal font-['Mulish'] leading-[19px] mb-[76px]">
+          By clicking the button above, you agree to our{" "}
+          <span className="text-[#ff8600]">Terms of Service</span> and{" "}
+          <span className="text-[#ff8600]">Privacy Policy</span>.
+        </div>
+
+        <div className=" text-[#5a6771] text-sm font-normal font-['Mulish'] leading-normal">
+          Already have an account?{" "}
+          <span className="text-[#ff8600]  text-sm font-medium">Login</span>
+        </div>
+      </div>
+
+      <button className="mt-[268px] h-[51px] p-[15px] bg-[#ff8600] rounded-[60.71px] shadow flex gap-px text-white text-sm font-semibold font-['Mulish'] leading-normal">
+        <span>Get Help</span>
+        <img src={HELP_MESSAGE_ICON} alt="" />
+      </button>
+    </>
+  );
+}
+
+clicking on sign up with email should take them to the next component, on the same signup page.
+
+import React from "react";
+
+import MAIL_ICON from "../../../assets/signup/email.svg";
+import USER from "../../../assets/signup/user.svg";
+import LOCK from "../../../assets/signup/lock_open.svg";
+
+export default function SignupForm() {
+  return (
+    <div className="md:w-[88.9%] lg:w-[68.9%] bg-white p-[50px] mx-auto mt-[160px] rounded-lg md:shadow md:border md:border-[#dde2e4]">
+      <div className=" text-[#1d1d18] text-2xl font-bold font-['Mulish'] leading-normal mb-[12px]">
+        Register your account
+      </div>
+
+      <div className="text-[#5a6771] text-[13px] font-normal font-['Mulish'] leading-[19px] mb-[20px]">
+        Proceed to create account and setup your organization
+      </div>
+
+      <div className="flex flex-wrap justify-between  sm:flex-nowrap gap-x-[19px]  mb-3">
+        <div className="relative w-full sm:w-[47.6%] mb-3 sm:mb-0">
+          <input
+            type="text"
+            className="h-10 w-full border pl-12 placeholder:text-[#5B6871] placeholder:text-[14px] placeholder:font-normal placeholder:leading-[24px] placeholder:tracking-[-0.0045em] font-[Mulish] border-[#DDE2E4] rounded-md focus:outline-none  focus:ring-1 focus:ring-[#ff8600]"
+            placeholder="First Name"
+          />
+          <img
+            className="absolute top-[12px] left-[20.23px]"
+            src={USER}
+            alt=""
+          />
+        </div>
+        <div className="relative w-full  sm:w-[47.6%]">
+          <input
+            type="text"
+            className="h-10 w-full border pl-12 placeholder:text-[#5B6871] placeholder:text-[14px] placeholder:font-normal placeholder:leading-[24px] placeholder:tracking-[-0.0045em] font-[Mulish] border-[#DDE2E4] rounded-md focus:outline-none  focus:ring-1 focus:ring-[#ff8600]"
+            placeholder="Last Name"
+          />
+          <img
+            className="absolute top-[12px] left-[20.23px]"
+            src={USER}
+            alt=""
+          />
+        </div>
+      </div>
+
+      <div className="relative mb-3">
+        <input
+          type="email"
+          className="h-10 w-full border pl-12 placeholder:text-[#5B6871] placeholder:text-[14px] placeholder:font-normal placeholder:leading-[24px] placeholder:tracking-[-0.0045em] font-[Mulish] border-[#DDE2E4] rounded-md"
+          placeholder="Work Email"
+        />
+        <img className="absolute top-[12px] left-[20.23px]" src={USER} alt="" />
+      </div>
+
+      <div className="relative mb-[30px]">
+        <input
+          type="password"
+          className="h-10 w-full border pl-12 placeholder:text-[#5B6871] placeholder:text-[14px] placeholder:font-normal placeholder:leading-[24px] placeholder:tracking-[-0.0045em] font-[Mulish] border-[#DDE2E4] rounded-md focus:outline-none  focus:ring-2 focus:ring-[#ff8600]"
+          placeholder="Password"
+        />
+        <img className="absolute top-[12px] left-[20.23px]" src={USER} alt="" />
+      </div>
+
+      <button className="h-10 w-full mb-[33px] bg-[#ff8600] text-[#f6f7f8]  rounded-md text-sm font-semibold font-['Mulish'] leading-normal">
+        Create account
+      </button>
+
+      <div className="text-[#83909a] text-[13px] font-normal font-['Mulish'] leading-[19px] mb-[76px]">
+        By clicking the button above, you agree to our{" "}
+        <span className="text-[#ff8600]">Terms of Service</span> and{" "}
+        <span className="text-[#ff8600]">Privacy Policy</span>.
+      </div>
+
+      <div className=" text-[#5a6771] text-sm font-normal font-['Mulish'] leading-normal">
+        Already have an account?{" "}
+        <span className="text-[#ff8600]  text-sm font-medium">Login</span>
+      </div>
+    </div>
+  );
+}
+
+implement the signup form with this endpoint https://fe-test.revvex.io/api/admin/register, 
+payload = curl --location 'https://fe-test.revvex.io/api/admin/register' \
+--header 'Accept: application/json' \
+--data-raw '{
+    "first_name": "echoes",
+    "last_name": "willieams",
+    "email": "willl@gmail.com",
+    "password": "Password1!"
+}'expected output for success
+{
+  "success": true,
+  "message": "Registration successful",
+  "data": {
+    "token": "ey....OTc0MzUwM",
+    "opt": 9715
+  }
+}
+
+do all the necessary things, like storing in token, using loadings from react spinner, error output if there is error etc, modify the code to do all that.
+
+when It is successful take the user to this component
+import React from "react";
+import SENT_EMAIL from "../../../assets/signup/email_sent.svg";
+
+export default function ConfirmEmail() {
+  return (
+    <div className="md:w-[88.9%] lg:w-[68.9%] bg-white py-[50px] mx-auto mt-[160px] rounded-lg md:shadow md:border md:border-[#dde2e4] flex flex-col items-center">
+      <div>
+        <img src={SENT_EMAIL} alt="" />
+      </div>
+      <div className="text-[#1d1d18] text-2xl font-bold font-['Mulish'] leading-normal text-center">
+        Check your mailbox !
+      </div>
+      <div className="w-[64.6%] mb-[21px] text-center text-[#5a6771] text-sm font-normal font-['Mulish'] leading-normal">
+        <span className="">
+          We've sent an email to{" "}
+        </span>
+        <span className="text-[#242c31]">
+          seyi@zojatech.com{" "}
+        </span>
+        <span className="">
+          with a an OTP to confirm your account. Check your inbox to activate
+          your account.
+        </span>
+      </div>
+
+      <button className="w-40 mb-[38px] h-10 px-4 py-2 bg-[#ff8600] rounded-md text-[#f6f7f8] text-sm font-semibold font-['Mulish'] leading-normal">
+      Confirm Email
+      </button>
+
+      <div className="text-center text-[#5a6771] text-sm font-normal font-['Mulish'] leading-normal">Didn't get the mail? <span className="text-[#ff8600]">Resend</span></div>
+    </div>
+  );
+}
+
+
+when he clicks "Confirm email" take him to the otp component
+import React, { useState } from "react";
+import axios from "axios";
+
+const OTPVerification = () => {
+  const [otp, setOtp] = useState(["", "", "", ""]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [email, setEmail] = useState("seyi@zojatech.com"); // Example email, replace accordingly
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+
+  const handleInputChange = (e, index) => {
+    const value = e.target.value;
+    if (value.length <= 1) {
+      const newOtp = [...otp];
+      newOtp[index] = value;
+      setOtp(newOtp);
+
+      // Auto focus next input
+      if (value && index < 3) {
+        document.getElementById(`otp-input-${index + 1}`).focus();
+      }
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    const otpCode = otp.join("");
+    console.log("optcode", otpCode)
+    if (otpCode.length !== 4) {
+      setErrorMessage("Please enter the complete 4-digit OTP.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setErrorMessage("");
+    setSuccessMessage("");
+
+    try {
+      // Replace this URL with your backend endpoint
+      const response = await axios.post("/api/verify-otp", {
+        otp: otpCode,
+        email,
+      });
+      setSuccessMessage("OTP Verified Successfully!");
+    } catch (error) {
+      setErrorMessage("Invalid OTP. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const resendOTP = async () => {
+    setIsSubmitting(true);
+    try {
+      // Replace with your backend resend OTP API
+      await axios.post("/api/resend-otp", { email });
+      setSuccessMessage("OTP Resent successfully!");
+    } catch (error) {
+      setErrorMessage("Failed to resend OTP. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  return (
+    <div className="md:w-[88.9%] lg:w-[68.9%] bg-white p-[50px] mx-auto mt-[160px] rounded-lg md:shadow md:border md:border-[#dde2e4] flex flex-col">
+      <div className="text-[#1d1d18] text-2xl font-bold font-['Mulish'] leading-normal">
+        Verify your email
+      </div>
+
+      <div className="text-[13px] mb-[28px] font-medium font-['Mulish'] leading-[19px">
+        <span className="text-[#5a6771] ]">
+          A four digit OTP code has been sent to your email{" "}
+        </span>
+        <span className="text-[#ff8600]">seyi@zojatech.com</span>
+      </div>
+
+      {/* OTP Input Fields */}
+      <form onSubmit={handleSubmit}>
+        <div className="flex space-x-4 mb-[34px]">
+          {otp.map((digit, index) => (
+            <input
+              key={index}
+              type="text"
+              maxLength="1"
+              id={`otp-input-${index}`}
+              value={digit}
+              onChange={(e) => handleInputChange(e, index)}
+              className="w-8 h-8 sm:w-12 sm:h-12 text-center border border-gray-300 rounded-lg text-2xl focus:outline-none focus:ring-2 focus:ring-[#ff8600]"
+            />
+          ))}
+        </div>
+
+        {/* Error and Success Messages */}
+        {errorMessage && (
+          <p className="text-red-500 text-center mb-4">{errorMessage}</p>
+        )}
+        {successMessage && (
+          <p className="text-green-500 text-center mb-4">{successMessage}</p>
+        )}
+
+        {/* Confirm Button */}
+        <button
+          type="submit"
+          className={`px-4 py-2 mb-[34px] bg-[#ff8600] rounded-md text-[#f6f7f8] text-sm font-semibold font-['Mulish'] leading-normal ${
+            isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+          }`}
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? "Submitting..." : "Confirm code"}
+        </button>
+      </form>
+
+      {/* Resend OTP */}
+      <div className="">
+        <p className="text-[#5a6771] text-sm font-normal font-['Mulish'] leading-normal">
+          Didn't get the mail? {" "}
+          <button
+            onClick={resendOTP}
+            className="text-[#ff8600] font-medium"
+            disabled={isSubmitting}
+          >
+            Resend
+          </button>
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default OTPVerification;
+otp should be done with https://fe-test.revvex.io/api/admin/verify-otp
+example request
+curl --location 'https://fe-test.revvex.io/api/admin/verify-otp' \
+--data '{
+     "otp":"9715"
+}'
+sample response
+{
+  "success": true,
+  "message": "OTP verified successfully",
+  "data": []
+}
+for resend otp use https://fe-test.revvex.io/api/admin/resend-otp
+sample request 
+curl --location 'https://fe-test.revvex.io/api/admin/resend-otp' \
+--data-raw '{
+     "email": "willl@gmail.com",
+     
+}'
+sample response
+{
+  "success": true,
+  "message": "OTP resent successfully",
+  "data": {
+    "opt": 6018
+  }
+}
+
+when the otp process is done successfully, take the user to  this component
+import React from 'react'
+import SENT_EMAIL from "../../../assets/signup/email_verified.svg";
+
+export default function EmailConfirmed() {
+  return (
+    <div className="md:w-[88.9%] lg:w-[68.9%] bg-white py-[50px] mx-auto mt-[160px] rounded-lg md:shadow md:border md:border-[#dde2e4] flex flex-col items-center">
+      <div className='mb-[32.2px]'>
+        <img src={SENT_EMAIL} alt="" />
+      </div>
+      <div className="text-[#1d1d18] text-2xl font-bold font-['Mulish'] leading-normal text-center">
+      Email verified !
+      </div>
+      <div className="w-[65%] mb-8 text-center text-[#5a6771] text-[13px] font-medium font-['Mulish'] leading-[19px]">The verified email address will be associated with your account. Click on the button below to continue</div>
+
+      <button className="w-40 mb-[38px] h-10 px-4 py-2 bg-[#ff8600] rounded-md text-[#f6f7f8] text-sm font-semibold font-['Mulish'] leading-normal">
+      Continue
+      </button>
+
+    
+    </div>
+  )
+}
+
+if he clicks on continue, direct to /dashboard.
+
+remember all this is happening on the signup page, implement the logic to change the components based on where the user is , so utilize state or anything you can to tract that, also for the signup form, help me implement the view password implementation, incase wants to view password, while typing, feel free to use react-icons for view and un-view password.
+
+good luck and do it well with comments
