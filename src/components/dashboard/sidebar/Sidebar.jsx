@@ -7,10 +7,11 @@ import styles from "./Sidebar.module.scss";
 import { FaTimes } from "react-icons/fa";
 
 const Sidebar = ({ mobile = false, onClose, current }) => {
-
   const navigate = useNavigate();
   const [items, setItems] = useState(sidebarItems);
-  const[loggedInUser, setLoggedInUser] = useState(JSON.parse(localStorage.getItem("loggedInUser")));
+  const [loggedInUser, setLoggedInUser] = useState(
+    JSON.parse(localStorage.getItem("loggedInUser"))
+  );
 
   // Set initial clicked item based on the current prop
   useEffect(() => {
@@ -27,19 +28,18 @@ const Sidebar = ({ mobile = false, onClose, current }) => {
   const handleItemClick = (index) => {
     const updatedItems = items.map((item, i) => ({
       ...item,
-      clicked: i === index, 
+      clicked: i === index,
     }));
     setItems(updatedItems);
   };
 
-   // Handle logout functionality
-   const handleLogout = () => {
+  // Handle logout functionality
+  const handleLogout = () => {
     // Clear localStorage or sessionStorage
-    localStorage.removeItem('token'); // Clear the auth token
-
+    localStorage.removeItem("token"); // Clear the auth token
 
     // Redirect to login page
-    navigate('/login');
+    navigate("/login");
   };
 
   return (
@@ -55,14 +55,15 @@ const Sidebar = ({ mobile = false, onClose, current }) => {
       )}
 
       {/* Logo */}
-      <div className="">
+      <Link to="/" className="">
         <img src={ICONS.LOGO} alt="Buddy" className="mb-[42px] mt-[29px]" />
-      </div>
+      </Link>
 
       {/* Sidebar Items */}
       <div className="flex-1 w-full  flex flex-col items-center mb-[416px]">
         {items.map((item, index) => (
-          <Link to={item.path}
+          <Link
+            to={item.path}
             key={index}
             className={`w-[80%] mb-2 py-4 px-8 flex items-center space-x-2 ${
               item.clicked
@@ -88,14 +89,19 @@ const Sidebar = ({ mobile = false, onClose, current }) => {
 
           <div className="text-center mb-3">
             <div className="text-[#3a3a45] text-lg font-medium font-['Lexend'] leading-normal tracking-tight">
-              {loggedInUser && (loggedInUser.first_name + " " + loggedInUser.last_name) || "Theresa Milly"}
+              {(loggedInUser &&
+                loggedInUser.first_name + " " + loggedInUser.last_name) ||
+                "Theresa Milly"}
             </div>
             <div className="text-[#808086] text-xs font-normal font-['Lexend'] leading-none tracking-tight">
               Influencer
             </div>
           </div>
         </div>
-        <button className="w-[68%] mx-auto py-3 flex  border-gray-200 bg-[#ff8600]/20 rounded-xl justify-center items-center gap-1 text-[#ff8600] text-sm font-medium font-['Lexend'] leading-[19.19px] tracking-tight" onClick={handleLogout} >
+        <button
+          className="w-[68%] mx-auto py-3 flex  border-gray-200 bg-[#ff8600]/20 rounded-xl justify-center items-center gap-1 text-[#ff8600] text-sm font-medium font-['Lexend'] leading-[19.19px] tracking-tight"
+          onClick={handleLogout}
+        >
           <img src={ICONS.LOGOUT} alt="" />
           <span>Logout</span>
         </button>

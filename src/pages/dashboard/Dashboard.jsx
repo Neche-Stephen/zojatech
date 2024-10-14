@@ -61,11 +61,11 @@ export default function Dashboard() {
   return (
     <div className="flex flex-wrap md:flex-nowrap">
       {/* Mobile Sidebar */}
-      <MobileSidebar isOpen={isMobileSidebarOpen} onClose={toggleSidebar} />
+      <MobileSidebar isOpen={isMobileSidebarOpen} onClose={toggleSidebar} current="My Portfolio"/>
 
       {/* Left Sidebar */}
       <div className="hidden lg:block w-[17.4%] ">
-        <Sidebar />
+        <Sidebar current="My Portfolio"/>
       </div>
 
       {/* Main */}

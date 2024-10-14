@@ -6,11 +6,10 @@ const ChatApp = () => {
   const [users, setUsers] = useState({});
   const [chats, setChats] = useState({});
   const [activeUser, setActiveUser] = useState(null);
-  // const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
   const [loggedInUser, setLoggedInUser] = useState(JSON.parse(localStorage.getItem("loggedInUser")));
 
 
-  // Function to generate the chat key in the format 'smallerID-largerID'
+  // Function to generate the chat key
   const generateChatKey = (user1Id, user2Id) => {
     return user1Id < user2Id
       ? `${user1Id}-${user2Id}`
@@ -40,7 +39,7 @@ const ChatApp = () => {
     // Add the logged-in user to the users object
     const newUsers = {
       ...usersObject,
-      [loggedInUser.id]: loggedInUser, // Add the logged-in user with their id as key
+      [loggedInUser.id]: loggedInUser, 
     };
 
     localStorage.setItem("users", JSON.stringify(newUsers));
@@ -58,11 +57,6 @@ const ChatApp = () => {
           message: `Hi ${loggedInUser.first_name}, how's it going?`,
           timestamp: "2024-10-10T09:00:00Z",
         },
-        // {
-        //   sender: loggedInUser.id,
-        //   message: "Doing well, thanks!",
-        //   timestamp: "2024-10-10T09:05:00Z",
-        // },
       ];
     });
 

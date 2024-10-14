@@ -4,7 +4,7 @@ const ChatSidebar = ({ users, activeUser, setActiveUser, loggedInUser }) => {
   console.log(loggedInUser.id)
   return (
     <div className="w-1/3 p-4 border-r px-4 pt-4 bg-[#F6F6F6] rounded-xl ">
-        {/* Show the logged-in user's image and name */}
+        {/* logged-in user's image and name */}
         <div className="flex items-center mb-4">
         <img
           src={loggedInUser.profile_picture}
@@ -19,7 +19,7 @@ const ChatSidebar = ({ users, activeUser, setActiveUser, loggedInUser }) => {
       <input type="text" className="w-full p-2 mb-4" placeholder="Search Here..." />
       <ul>
         {Object.keys(users).map((userId) => {
-          if (userId === String(loggedInUser.id)) return null; // Don't show the logged-in user
+          if (userId === String(loggedInUser.id)) return null; 
           return (
             <li
               key={userId}

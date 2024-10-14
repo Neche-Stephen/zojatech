@@ -6,7 +6,7 @@ import Sidebar from "./Sidebar";
 import styles from "./Sidebar.module.scss";
 import { FaTimes } from "react-icons/fa";
 
-const MobileSidebar = ({ isOpen, onClose }) => {
+const MobileSidebar = ({ isOpen, onClose, current }) => {
   if (!isOpen) return null;
 
   const [items, setItems] = useState(sidebarItems);
@@ -15,7 +15,7 @@ const MobileSidebar = ({ isOpen, onClose }) => {
   const handleItemClick = (index) => {
     const updatedItems = items.map((item, i) => ({
       ...item,
-      clicked: i === index, // Only the clicked item becomes true, others false
+      clicked: i === index, 
     }));
     setItems(updatedItems);
   };
@@ -23,7 +23,7 @@ const MobileSidebar = ({ isOpen, onClose }) => {
   return (
     <div className={`${styles.sidebarOverlay} fixed inset-0 z-40 flex items-center justify-start bg-black bg-opacity-50`}
     >
-      <Sidebar mobile={true} onClose={onClose} />
+      <Sidebar mobile={true} onClose={onClose} current={current} />
     </div>
   );
 };

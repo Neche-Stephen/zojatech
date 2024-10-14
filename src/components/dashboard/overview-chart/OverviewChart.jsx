@@ -16,7 +16,7 @@ const initialData = [
   { name: "MAR", metricA: 400, metricB: 500 },
   { name: "APR", metricA: 450, metricB: 550 },
   { name: "MAY", metricA: 550, metricB: 600 },
-  { name: "JUN", metricA: 800, metricB: 900 }, // June will be default for Robbin Hood
+  { name: "JUN", metricA: 800, metricB: 900 },
   { name: "JUL", metricA: 600, metricB: 700 },
   { name: "AUG", metricA: 400, metricB: 500 },
   { name: "SEP", metricA: 300, metricB: 400 },

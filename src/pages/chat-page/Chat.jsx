@@ -62,7 +62,7 @@ export default function Dashboard() {
   return (
     <div className="flex flex-wrap md:flex-nowrap h-screen">
       {/* Mobile Sidebar */}
-      <MobileSidebar isOpen={isMobileSidebarOpen} onClose={toggleSidebar} />
+      <MobileSidebar isOpen={isMobileSidebarOpen} onClose={toggleSidebar} current="Messages"/>
 
       {/* Left Sidebar */}
       <div className="hidden lg:block w-[17.4%] ">
