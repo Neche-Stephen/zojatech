@@ -54,10 +54,15 @@ const Chart = () => {
     setChartData(updatedData);
   };
 
-  const barColors = (month) =>
+  const firstBarColor = (month) =>
     month === platformTallestMonths[activePlatform].month
-      ? "#ffa500"
-      : "#cccccc";
+      ? "#FFB800"
+      : "#F1F1F2";
+
+  const secondBarColor = (month) =>
+  month === platformTallestMonths[activePlatform].month
+    ? "#FF8600"
+    : "#E6E6E7";
 
   return (
     <div className=" mx-auto p-4 bg-white">
@@ -99,7 +104,7 @@ const Chart = () => {
             {chartData.map((entry, index) => (
               <Cell
                 key={`cell-metricA-${index}`}
-                fill={barColors(entry.name)}
+                fill={firstBarColor(entry.name)}
               />
             ))}
           </Bar>
@@ -109,7 +114,7 @@ const Chart = () => {
             {chartData.map((entry, index) => (
               <Cell
                 key={`cell-metricB-${index}`}
-                fill={barColors(entry.name)}
+                fill={secondBarColor(entry.name)}
               />
             ))}
           </Bar>

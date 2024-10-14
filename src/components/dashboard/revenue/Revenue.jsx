@@ -17,7 +17,7 @@ export default function Revenue() {
       <div className="flex flex-col gap-3">
         {revenue.map((item, index) => {
           return (
-            <div className=" bg-white p-4 rounded-xl flex justify-between items-center gap-[65px] shadow border border-[#f1f1f1] ">
+            <div key ={index} className=" bg-white p-4 rounded-xl flex justify-between items-center gap-[65px] shadow border border-[#f1f1f1] ">
               <div className=" w-2/12">
                 <div className="text-[#3a3a45] text-[25px] font-bold font-['Lexend'] leading-[33.25px] mb-1">
                   {item.value}

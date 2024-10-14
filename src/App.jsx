@@ -1,6 +1,4 @@
 import { useState, useEffect } from 'react';
-import OverviewChart from './components/dashboard/overview-chart/OverviewChart'
-import ChatApp from './components/chat-app/ChatApp'
 import './App.css';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Signup from './pages/signup/Signup';
@@ -11,10 +9,13 @@ import ChooseSignupPlatform from './components/signup/choose-signup-platform/Cho
 import EmailConfirmed from './components/signup/email-confirmed/EmailConfirmed';
 import Login from './pages/login/Login';
 import Dashboard from './pages/dashboard/Dashboard';
+import Chat from './pages/chat-page/Chat';
 
 function App() {
   const [count, setCount] = useState(0);
   const [newUser, setNewUser] = useState({ id: '5', first_name: 'Sarah' });
+
+
 
   useEffect(() => {
   //  localStorage.clear();
@@ -37,6 +38,7 @@ function App() {
 
           <Route path="/login" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/chat" element={<Chat />} />
 
         </Routes>
 

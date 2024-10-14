@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {
   Drawer,
   Button,
@@ -6,8 +6,10 @@ import {
   IconButton,
 } from "@material-tailwind/react";
 import ICONS from "../../assets/dashboard/";
+import { BsMenuButtonWide } from "react-icons/bs";
 
 import Sidebar from "../../components/dashboard/sidebar/Sidebar";
+import MobileSidebar from "../../components/dashboard/sidebar/MobileSidebar";
 import DashboardNavbar from "../../components/dashboard/dashboard-navbar/DashboardNavbar";
 import DashboardCard from "../../components/dashboard/dashboard-card/DashboardCard";
 import OverviewChart from "../../components/dashboard/overview-chart/OverviewChart";
@@ -17,9 +19,43 @@ import Revenue from "../../components/dashboard/revenue/Revenue";
 import TrendingNews from "../../components/dashboard/trending-news/TrendingNews";
 
 export default function Dashboard() {
-  const [open, setOpen] = React.useState(false);
-  const openDrawer = () => setOpen(true);
-  const closeDrawer = () => setOpen(false);
+  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
+
+  // Toggle Mobile sidebar
+  const toggleSidebar = () => {
+    setIsMobileSidebarOpen(!isMobileSidebarOpen);
+  };
+
+  // Close mobile sidebar if screen width exceeds lg
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setIsMobileSidebarOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  // Close sidebar when clicking outside
+  const handleOutsideClick = (e) => {
+    if (isMobileSidebarOpen && !e.target.closest(".sidebar")) {
+      setIsMobileSidebarOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isMobileSidebarOpen) {
+      document.addEventListener("mousedown", handleOutsideClick);
+    } else {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, [isMobileSidebarOpen]);
 
   const dashboardAnalytics = [
     { title: "Total Channels", value: "51", icon: ICONS.TOTAL_CHANNELS },
@@ -29,6 +65,10 @@ export default function Dashboard() {
 
   return (
     <div className="flex flex-wrap md:flex-nowrap">
+
+      {/* Mobile Sidebar */}
+      <MobileSidebar isOpen={isMobileSidebarOpen} onClose={toggleSidebar} />
+
         {/* Left Sidebar */}
       <div className="hidden lg:block w-[17.4%] ">
         <Sidebar />
@@ -39,8 +79,9 @@ export default function Dashboard() {
       <div className="w-full md:w-[68.1%] lg:w-[58.1%] px-8  bg-[#F6F6F6]">
 
         {/* Mobile Navbar */}
-        <div className="block lg:hidden">
-             <Button onClick={openDrawer}>Open Drawer</Button>
+        <div className="flex justify-between items-center mt-4 sm:mt-10 lg:hidden">
+             <div><img src={ICONS.LOGO_TRANSPARENT} alt="" /></div>
+             <BsMenuButtonWide onClick={toggleSidebar} style={{cursor:"pointer"}} />
         </div>
 
         <DashboardNavbar />
@@ -75,30 +116,6 @@ export default function Dashboard() {
         </div>
       </div>
 
-      {/* <Button onClick={openDrawer}>Open Drawer</Button> */}
-      <Drawer open={open} onClose={closeDrawer}>
-        <div className="mb-2 flex items-center justify-end p-4">
-          <IconButton variant="text" color="blue-gray" onClick={closeDrawer}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={2}
-              stroke="currentColor"
-              className="h-5 w-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
-          </IconButton>
-
-        </div>
-        <Sidebar />
-      
-      </Drawer>
     </div>
   );
 }
