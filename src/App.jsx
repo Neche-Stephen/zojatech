@@ -18,7 +18,6 @@ function App() {
 
   useEffect(() => {
     //  localStorage.clear();
-    // addUserToLocalStorage(newUser);
   }, []);
 
   return (

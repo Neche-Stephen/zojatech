@@ -4,10 +4,10 @@ import ICONS from "../../../assets/dashboard/";
 export default function PotentialMembers() {
   const members = [
     { name: "Wanda Parker", username: "@ashking1234", growth: "10.3%", profile_pic: ICONS.WANDA },
-    { name: "Terry Brown", username: "@ashking1234", growth: "9.8%", profile_pic: ICONS.WANDA  },
-    { name: "Lucas Holmes", username: "@ashking1234", growth: "6.5%", profile_pic: ICONS.WANDA  },
-    { name: "Janice Miller", username: "@ashking1234", growth: "8.6%", profile_pic: ICONS.WANDA  },
-    { name: "Terry Brown", username: "@ashking1234", growth: "9.8%", profile_pic: ICONS.WANDA  },
+    { name: "Terry Brown", username: "@ashking1234", growth: "9.8%", profile_pic: ICONS.TERRY  },
+    { name: "Lucas Holmes", username: "@ashking1234", growth: "6.5%", profile_pic: ICONS.LUCAS  },
+    { name: "Janice Miller", username: "@ashking1234", growth: "8.6%", profile_pic: ICONS.JANICE  },
+    { name: "Terry Brown", username: "@ashking1234", growth: "9.8%", profile_pic: ICONS.BROWN  },
 
 
   ];

@@ -43,7 +43,8 @@ export default function SignupForm() {
         localStorage.setItem("token", response.data.data.token);
         localStorage.setItem("email", formData.email);
         localStorage.setItem("otp", response.data.data.opt);
-        console.log(response.data);
+        console.log(response);
+
         navigate("/confirm-email");
       } else {
         setError(response.data.message || "Something went wrong");
@@ -57,6 +58,7 @@ export default function SignupForm() {
       setLoading(false);
     }
   };
+
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword); // Toggle password visibility

@@ -1,11 +1,7 @@
-
-
-
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate, Link } from "react-router-dom";
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai"; 
-
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 import MAIL_ICON from "../../../assets/signup/email.svg";
 
@@ -43,7 +39,20 @@ export default function LoginForm() {
 
       if (response.data.success) {
         localStorage.setItem("token", response.data.data.token);
-        localStorage.setItem("user", JSON.stringify(response.data.data.user));
+        localStorage.setItem("email", email);
+
+        console.log(response.data.data.user)
+
+        const newUser = {
+          id: response.data.data.user.id,
+          first_name: response.data.data.user.first_name,
+          last_name: response.data.data.user.last_name,
+          profile_picture: "/brown.jpg", // default image  url
+        }
+        console.log("newUser", newUser)
+
+        localStorage.setItem("loggedInUser", JSON.stringify(newUser));
+        addUserToLocalStorage(newUser);
 
         // Navigate to the dashboard after successful login
         navigate("/dashboard");
@@ -57,6 +66,26 @@ export default function LoginForm() {
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  // userService.js
+
+  // Function to add a new user to localStorage
+  const addUserToLocalStorage = (newUser) => {
+    // Retrieve current users object from localStorage
+    const usersFromStorage = JSON.parse(localStorage.getItem("users")) || {};
+
+    // Add the new user to the users object
+    const updatedUsers = {
+      ...usersFromStorage,
+      [newUser.id]: newUser,
+    };
+
+    // Save the updated users object back into localStorage
+    localStorage.setItem("users", JSON.stringify(updatedUsers));
+
+    console.log("New user added:", newUser);
+    console.log("Updated users:", updatedUsers);
   };
 
   // Toggle password visibility
@@ -111,7 +140,11 @@ export default function LoginForm() {
             className="absolute top-[12px] right-[20.23px] cursor-pointer"
             onClick={togglePasswordVisibility}
           >
-            {showPassword ? <AiFillEyeInvisible size={20} color="#B0BABF" /> : <AiFillEye size={20} color="#B0BABF"/>}
+            {showPassword ? (
+              <AiFillEyeInvisible size={20} color="#B0BABF" />
+            ) : (
+              <AiFillEye size={20} color="#B0BABF" />
+            )}
           </span>
         </div>
 
@@ -140,7 +173,9 @@ export default function LoginForm() {
 
       <div className=" text-[#5a6771] text-sm font-normal font-['Mulish'] leading-normal">
         Don't have an account?{" "}
-        <Link to = "/signup"  className="text-[#ff8600]  text-sm font-medium">Register</Link>
+        <Link to="/signup" className="text-[#ff8600]  text-sm font-medium">
+          Register
+        </Link>
       </div>
     </div>
   );

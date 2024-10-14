@@ -14,7 +14,7 @@ export default function EmailConfirmed() {
       </div>
       <div className="w-[65%] mb-8 text-center text-[#5a6771] text-[13px] font-medium font-['Mulish'] leading-[19px]">The verified email address will be associated with your account. Click on the button below to continue</div>
 
-      <Link to = '/dashboard' className="w-40 mb-[38px] text-center h-10 px-4 py-2 bg-[#ff8600] rounded-md text-[#f6f7f8] text-sm font-semibold font-['Mulish'] leading-normal">
+      <Link to = '/login' className="w-40 mb-[38px] text-center h-10 px-4 py-2 bg-[#ff8600] rounded-md text-[#f6f7f8] text-sm font-semibold font-['Mulish'] leading-normal">
       Continue
       </Link>
 

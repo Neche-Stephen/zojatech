@@ -69,7 +69,7 @@ const OTPVerification = () => {
         setSuccessMessage("OTP Verified Successfully!");
         setTimeout(() => {
          navigate("/email-confirmed");
-        }, 1500);
+        }, 1000);
       } else {
         // setErrorMessage("Invalid OTP. Please try again."); // Commented because api for otp is not working, this is a temporary test solution to ensure, user is allows to reach dashboard
         setSuccessMessage("OTP Verified Successfully!");

@@ -6,12 +6,9 @@ const ChatApp = () => {
   const [users, setUsers] = useState({});
   const [chats, setChats] = useState({});
   const [activeUser, setActiveUser] = useState(null);
-  const [loggedInUser, setLoggedInUser] = useState({
-    id: "5",
-    first_name: "Sarah",
-  });
+  // const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+  const [loggedInUser, setLoggedInUser] = useState(JSON.parse(localStorage.getItem("loggedInUser")));
 
-  //   const loggedInUser = { id: '1', first_name: 'David' }; // Hardcoded logged-in user for now
 
   // Function to generate the chat key in the format 'smallerID-largerID'
   const generateChatKey = (user1Id, user2Id) => {
@@ -23,10 +20,10 @@ const ChatApp = () => {
   // Initial data function to populate users and chats
   const populateInitialData = () => {
     const initialUsers = [
-      { id: "1", first_name: "David", profile_picture: "david.png" },
-      { id: "2", first_name: "Lisa", profile_picture: "lisa.png" },
-      { id: "3", first_name: "Jamie", profile_picture: "jamie.png" },
-      { id: "4", first_name: "Ana", profile_picture: "ana.png" },
+      { id: "1", first_name: "David", last_name:"Johnson", profile_picture: "./wanda_parker.jpg" },
+      { id: "2", first_name: "Lisa", last_name:"Agnes", profile_picture: "/janice.jpg" },
+      { id: "3", first_name: "Jamie", last_name:"Drake", profile_picture: "/lucas.jpg" },
+      { id: "4", first_name: "Ana", last_name:"Lucia", profile_picture: "/terry.jpg" },
     ];
     console.log("Populating initial data...", initialUsers);
     // Filter out the current user from the initial data
@@ -61,11 +58,11 @@ const ChatApp = () => {
           message: `Hi ${loggedInUser.first_name}, how's it going?`,
           timestamp: "2024-10-10T09:00:00Z",
         },
-        {
-          sender: loggedInUser.id,
-          message: "Doing well, thanks!",
-          timestamp: "2024-10-10T09:05:00Z",
-        },
+        // {
+        //   sender: loggedInUser.id,
+        //   message: "Doing well, thanks!",
+        //   timestamp: "2024-10-10T09:05:00Z",
+        // },
       ];
     });
 

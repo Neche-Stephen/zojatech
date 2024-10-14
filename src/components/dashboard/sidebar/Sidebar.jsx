@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { sidebarItems } from "../../../utils/sidebar/sidebar-items";
 import { useNavigate, Link } from "react-router-dom";
 import ICONS from "../../../assets/dashboard/";
@@ -6,16 +6,28 @@ import ICONS from "../../../assets/dashboard/";
 import styles from "./Sidebar.module.scss";
 import { FaTimes } from "react-icons/fa";
 
-const Sidebar = ({ mobile = true, onClose }) => {
+const Sidebar = ({ mobile = false, onClose, current }) => {
 
   const navigate = useNavigate();
   const [items, setItems] = useState(sidebarItems);
+  const[loggedInUser, setLoggedInUser] = useState(JSON.parse(localStorage.getItem("loggedInUser")));
+
+  // Set initial clicked item based on the current prop
+  useEffect(() => {
+    if (current) {
+      const updatedItems = sidebarItems.map((item) => ({
+        ...item,
+        clicked: item.title === current, // Set clicked to true if the title matches the current prop
+      }));
+      setItems(updatedItems);
+    }
+  }, [current]);
 
   // Handle item click and update state
   const handleItemClick = (index) => {
     const updatedItems = items.map((item, i) => ({
       ...item,
-      clicked: i === index, // Only the clicked item becomes true, others false
+      clicked: i === index, 
     }));
     setItems(updatedItems);
   };
@@ -24,7 +36,7 @@ const Sidebar = ({ mobile = true, onClose }) => {
    const handleLogout = () => {
     // Clear localStorage or sessionStorage
     localStorage.removeItem('token'); // Clear the auth token
-    localStorage.removeItem('user'); // Optionally remove user data
+
 
     // Redirect to login page
     navigate('/login');
@@ -76,7 +88,7 @@ const Sidebar = ({ mobile = true, onClose }) => {
 
           <div className="text-center mb-3">
             <div className="text-[#3a3a45] text-lg font-medium font-['Lexend'] leading-normal tracking-tight">
-              Theresa milly
+              {loggedInUser && (loggedInUser.first_name + " " + loggedInUser.last_name) || "Theresa Milly"}
             </div>
             <div className="text-[#808086] text-xs font-normal font-['Lexend'] leading-none tracking-tight">
               Influencer

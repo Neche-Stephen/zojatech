@@ -66,7 +66,7 @@ export default function Dashboard() {
 
       {/* Left Sidebar */}
       <div className="hidden lg:block w-[17.4%] ">
-        <Sidebar />
+        <Sidebar current="Messages"/>
       </div>
 
       {/* Main */}
