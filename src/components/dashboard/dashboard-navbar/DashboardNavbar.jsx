@@ -3,7 +3,7 @@ import ICONS from "../../../assets/dashboard/";
 
 export default function DashboardNavbar() {
   return (
-    <div className="flex mb-[39.5px] mt-10 gap-4 items-center">
+    <div className="flex mb-[39.5px] mt-10 gap-4 items-center w-full">
       <div className="text-[#3a3a45] sm:text-[25px] font-bold font-['Lexend'] leading-[33.25px] mr-auto">
         My Portfolio
       </div>

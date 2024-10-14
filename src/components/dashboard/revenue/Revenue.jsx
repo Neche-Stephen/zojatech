@@ -9,7 +9,7 @@ const revenue = [
 
 export default function Revenue() {
   return (
-    <div className="w-[93.2%] mt-8 mb-4 mx-auto md:mx-0 p-5 bg-white rounded-2xl">
+    <div className="w-[93.2%] mb-4 mx-auto md:mx-0 p-5 bg-white rounded-2xl">
       <div className="text-[#3a3a45] text-xl font-bold font-['Lexend'] leading-relaxed">
         Revenue
       </div>

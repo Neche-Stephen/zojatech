@@ -17,7 +17,7 @@ export const sidebarItems = [
         title: "Messages",
         icon: ICONS.EMAIL,
         clicked: false,
-        path: "/dashboard"
+        path: "/chat"
     },
     {
         title: "Analytics",

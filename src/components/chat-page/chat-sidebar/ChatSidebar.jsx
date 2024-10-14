@@ -2,7 +2,7 @@ import React from 'react';
 
 const ChatSidebar = ({ users, activeUser, setActiveUser, loggedInUser }) => {
   return (
-    <div className="w-1/3 p-4 border-r">
+    <div className="w-1/3 p-4 border-r px-4 pt-4 bg-[#F6F6F6] rounded-xl ">
       <input type="text" className="w-full p-2 mb-4" placeholder="Search Here..." />
       <ul>
         {Object.keys(users).map((userId) => {

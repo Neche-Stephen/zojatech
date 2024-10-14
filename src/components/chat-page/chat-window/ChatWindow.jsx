@@ -12,7 +12,7 @@ const ChatWindow = ({ activeUser, messages, loggedInUser, sendMessage }) => {
   };
 
   return (
-    <div className="w-2/3 p-4 flex flex-col justify-between">
+    <div className="w-2/3 p-4 flex flex-col justify-between bg-[#F6F6F6] rounded-xl ">
       <div className="overflow-auto mb-4">
         {messages.map((msg, index) => (
           <div key={index} className={`flex ${msg.sender === loggedInUser.id ? 'justify-end' : 'justify-start'} mb-2`}>

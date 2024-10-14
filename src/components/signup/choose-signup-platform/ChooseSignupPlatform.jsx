@@ -51,10 +51,10 @@ export default function ChooseSignupPlatform() {
         </div>
       </div>
 
-      <button className="mt-[268px] h-[51px] p-[15px] bg-[#ff8600] rounded-[60.71px] shadow flex gap-px text-white text-sm font-semibold font-['Mulish'] leading-normal">
+      {/* <button className="mt-[268px] h-[51px] p-[15px] bg-[#ff8600] rounded-[60.71px] shadow flex gap-px text-white text-sm font-semibold font-['Mulish'] leading-normal">
         <span>Get Help</span>
         <img src={HELP_MESSAGE_ICON} alt="" />
-      </button>
+      </button> */}
     </>
   );
 }
