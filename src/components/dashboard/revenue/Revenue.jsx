@@ -3,8 +3,8 @@ import ICONS from "../../../assets/dashboard/";
 
 const revenue = [
   { value: "$4,000", title: "Recently Added Pages", icon: ICONS.FACEBOOK },
-  { value: "$2,120", title: "Video Monetization", icon: ICONS.FACEBOOK },
-  { value: "$1,752", title: "Community Buildup", icon: ICONS.FACEBOOK },
+  { value: "$2,120", title: "Video Monetization", icon: ICONS.INSTAGRAM },
+  { value: "$1,752", title: "Community Buildup", icon: ICONS.LINKEDIN},
 ];
 
 export default function Revenue() {

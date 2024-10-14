@@ -3,7 +3,7 @@ import ICONS from "../../../assets/dashboard/";
 
 export default function Watchlist() {
   return (
-    <div className="w-[93.2%] h-[287px] p-5 bg-white rounded-2xl mx-auto md:mx-0  mt-8 mb-4">
+    <div className="w-[93.2%] h-[287px] p-5 bg-white rounded-2xl mx-auto md:mx-0  mt-8 md:mt-0 mb-4">
       <div className="flex justify-between items-center mb-4 gap-2">
         <div className="text-[#3a3a45] text-xl font-bold font-['Lexend'] leading-relaxed">
           Watchlist
