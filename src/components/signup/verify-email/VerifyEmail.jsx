@@ -7,7 +7,7 @@ const OTPVerification = () => {
   const email = localStorage.getItem("email");
   const [otp, setOtp] = useState(["", "", "", ""]);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const storedOtp = localStorage.getItem("otp"); // Retrieve OTP
+  const storedOtp = localStorage.getItem("otp");
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 

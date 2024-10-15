@@ -5,12 +5,7 @@ import { BsMenuButtonWide } from "react-icons/bs";
 import Sidebar from "../../components/dashboard/sidebar/Sidebar";
 import MobileSidebar from "../../components/dashboard/sidebar/MobileSidebar";
 import DashboardNavbar from "../../components/dashboard/dashboard-navbar/DashboardNavbar";
-import DashboardCard from "../../components/dashboard/dashboard-card/DashboardCard";
-import OverviewChart from "../../components/dashboard/overview-chart/OverviewChart";
-import TrendingPosts from "../../components/dashboard/trending-posts/TrendingPosts";
-import PotentialMembers from "../../components/dashboard/potential-members/PotentialMembers";
-import Revenue from "../../components/dashboard/revenue/Revenue";
-import TrendingNews from "../../components/dashboard/trending-news/TrendingNews";
+
 
 import ChatApp from "../../components/chat-page/chat-app/ChatApp";
 
@@ -35,7 +30,7 @@ export default function Dashboard() {
     };
   }, []);
 
-  // Close sidebar when clicking outside
+  // Close mobile sidebar when clicking outside
   const handleOutsideClick = (e) => {
     if (isMobileSidebarOpen && !e.target.closest(".sidebar")) {
       setIsMobileSidebarOpen(false);

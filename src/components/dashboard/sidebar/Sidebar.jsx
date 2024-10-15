@@ -18,7 +18,7 @@ const Sidebar = ({ mobile = false, onClose, current }) => {
     if (current) {
       const updatedItems = sidebarItems.map((item) => ({
         ...item,
-        clicked: item.title === current, // Set clicked to true if the title matches the current prop
+        clicked: item.title === current, 
       }));
       setItems(updatedItems);
     }
@@ -35,10 +35,7 @@ const Sidebar = ({ mobile = false, onClose, current }) => {
 
   // Handle logout functionality
   const handleLogout = () => {
-    // Clear localStorage or sessionStorage
-    localStorage.removeItem("token"); // Clear the auth token
-
-    // Redirect to login page
+    localStorage.removeItem("token");
     navigate("/login");
   };
 

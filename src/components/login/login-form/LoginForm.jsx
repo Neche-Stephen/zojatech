@@ -47,14 +47,13 @@ export default function LoginForm() {
           id: response.data.data.user.id,
           first_name: response.data.data.user.first_name,
           last_name: response.data.data.user.last_name,
-          profile_picture: "/brown.jpg", // default image  url
+          profile_picture: "/brown.jpg", // default image url
         }
         console.log("newUser", newUser)
 
         localStorage.setItem("loggedInUser", JSON.stringify(newUser));
         addUserToLocalStorage(newUser);
 
-        // Navigate to the dashboard after successful login
         navigate("/dashboard");
       } else {
         setErrorMessage("Invalid email or password.");
@@ -67,8 +66,6 @@ export default function LoginForm() {
       setIsSubmitting(false);
     }
   };
-
-  // userService.js
 
   // Function to add a new user to localStorage
   const addUserToLocalStorage = (newUser) => {
@@ -124,7 +121,7 @@ export default function LoginForm() {
         {/* Password Input */}
         <div className="relative mb-[30px]">
           <input
-            type={showPassword ? "text" : "password"} // Conditionally render input type
+            type={showPassword ? "text" : "password"} 
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="h-10 w-full border pl-12 pr-10 placeholder:text-[#5B6871] placeholder:text-[14px] placeholder:font-normal placeholder:leading-[24px] placeholder:tracking-[-0.0045em] font-[Mulish] border-[#DDE2E4] rounded-md focus:outline-none  focus:ring-1 focus:ring-[#ff8600]"

@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 import MAIL_ICON from "../../../assets/signup/email.svg";
 import USER from "../../../assets/signup/user.svg";
 import LOCK from "../../../assets/signup/lock_open.svg";
-import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai"; // Importing eye icons
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import ClipLoader from "react-spinners/ClipLoader";
 import axios from "axios";
 
@@ -61,7 +61,7 @@ export default function SignupForm() {
 
 
   const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword); // Toggle password visibility
+    setShowPassword(!showPassword); 
   };
 
   return (
@@ -129,7 +129,7 @@ export default function SignupForm() {
 
         <div className="relative mb-[30px]">
           <input
-            type={showPassword ? "text" : "password"} // Conditionally render password as text or password
+            type={showPassword ? "text" : "password"} 
             name="password"
             value={formData.password}
             onChange={handleChange}

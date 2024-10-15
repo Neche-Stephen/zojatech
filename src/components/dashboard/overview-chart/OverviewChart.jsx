@@ -39,7 +39,7 @@ const Chart = () => {
   const handlePlatformClick = (platform) => {
     setActivePlatform(platform);
 
-    // Adjust data based on the selected platform
+    // Here Data is adjusted ased on the selected platform
     const updatedData = initialData.map((entry) => {
       if (entry.name === platformTallestMonths[platform].month) {
         return {
