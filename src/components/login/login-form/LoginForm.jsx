@@ -93,7 +93,7 @@ export default function LoginForm() {
   return (
     <>
       {" "}
-      <div className="md:w-[88.9%] lg:w-[68.9%] bg-white p-[50px] mx-auto mt-[160px] rounded-lg md:shadow md:border md:border-[#dde2e4]">
+      <div className="md:w-[88.9%] lg:w-[68.9%] bg-white p-[50px] mx-auto mt-[160px] rounded-lg md:shadow-lg md:border md:border-[#dde2e4]">
         <div className=" text-[#1d1d18] text-2xl font-bold font-['Mulish'] leading-normal mb-[12px]">
           Log in to your account
         </div>
