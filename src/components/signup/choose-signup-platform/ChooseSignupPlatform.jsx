@@ -49,7 +49,7 @@ export default function ChooseSignupPlatform() {
 
         <div className=" text-[#5a6771] text-sm font-normal font-['Mulish'] leading-normal">
           Already have an account?{" "}
-          <span className="text-[#ff8600]  text-sm font-medium">Login</span>
+          <Link to = "/login" className="text-[#ff8600]  text-sm font-medium">Login</Link>
         </div>
       </div>
 

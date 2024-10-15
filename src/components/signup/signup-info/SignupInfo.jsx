@@ -2,12 +2,13 @@ import React from "react";
 
 import LOGO from "../../../assets/signup/buddy-logo.jpg";
 import CHECKBOX from "../../../assets/signup/Checkbox.jpg";
+import { Link } from "react-router-dom";
 
 export default function SignupInfo() {
   return (
     <div className="mx-auto w-[70.8%] mt-[90px] ">
       <div className="mb-[129px]">
-        <img src={LOGO} alt="" />
+        <Link to="/"><img src={LOGO} alt="" /></Link>
       </div>
 
       <div className="flex gap-4 items-center mb-[37px]">
